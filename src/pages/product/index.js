@@ -11,13 +11,36 @@ const Container = ({ dispatch, products }) => {
       payload: id,
     });
   };
+
+  const handleCopy = (item) => {
+    dispatch({
+      type: "product/copy",
+      payload: item,
+    });
+  };
+
+  const handlePlus = (item) => {
+    dispatch({
+      type: "product/create",
+      payload: item,
+    });
+  }
+
   useEffect(() => {
     dispatch({
       type: "product/getProducts",
       payload: [],
     });
   }, []);
-  return <ProductList onDelete={handleDelete} products={products} />;
+
+  return (
+    <ProductList
+      onDelete={handleDelete}
+      onCopy={handleCopy}
+      onPlus={handlePlus}
+      products={products}
+    />
+  );
 };
 
 function mapStateToProps({ product }) {

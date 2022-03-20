@@ -6,26 +6,27 @@ import {
   EyeOutlined,
   EditOutlined,
   CopyOutlined,
+  PlusOutlined
 } from "@ant-design/icons";
 
-const ProductList = ({ onDelete, products }) => {
+const ProductList = ({ onDelete, onCopy, onPlus, products }) => {
   const columns = [
     {
       title: "名称",
       dataIndex: "name",
     },
-    {
-      title: "地址",
-      dataIndex: "address",
-    },
-    {
-      title: "创建时间",
-      dataIndex: "created",
-    },
-    {
-      title: "修改时间",
-      dataIndex: "updated",
-    },
+    // {
+    //   title: "地址",
+    //   dataIndex: "address",
+    // },
+    // {
+    //   title: "创建时间",
+    //   dataIndex: "created",
+    // },
+    // {
+    //   title: "修改时间",
+    //   dataIndex: "updated",
+    // },
     {
       title: "操作",
       render: (text, record) => {
@@ -40,7 +41,8 @@ const ProductList = ({ onDelete, products }) => {
             <Button type="primary" icon={<EditOutlined />}>
               编辑
             </Button>
-            <Button icon={<CopyOutlined />}>复制</Button>
+            <Button icon={<CopyOutlined />} onClick={() => onCopy(record)}>复制</Button>
+            <Button icon={<PlusOutlined />} onClick={() => onPlus(record)}>新增</Button>
           </Button.Group>
         );
       },
@@ -57,6 +59,8 @@ const ProductList = ({ onDelete, products }) => {
 };
 
 ProductList.propTypes = {
+  onCopy: PropTypes.func.isRequired,
+  onPlus: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   products: PropTypes.array.isRequired,
 };

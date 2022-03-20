@@ -11,8 +11,9 @@ export default {
   "GET /api/products": (req, res) => {
     res.status(200).send({
       data: Mock.mock({
-        "list|100": [
+        "list|3": [
           {
+            id: "@guid",
             key: "@guid",
             name: "@cname",
             address: '@pcd',
