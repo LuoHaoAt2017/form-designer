@@ -21,6 +21,7 @@
   "dependencies": {
     "@umijs/preset-react": "^1.8.10",
     "mockjs": "^1.1.0",
+    "redux-logger": "^3.0.6",
     "umi": "^3.5.21"
   }
 }

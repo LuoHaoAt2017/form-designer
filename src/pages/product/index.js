@@ -1,28 +1,28 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import { connect } from "dva";
-import ProductList from "@/components/products";
+import ProductList from "@/components/product";
 
 const Container = ({ dispatch, products }) => {
   const handleDelete = (id) => {
     // dispatch 是一个函数方法，用来将 Action 发送给 State。
     // 被 connect 的 Component 会自动在 props 中拥有 dispatch 方法。
     dispatch({
-      type: "products/delete",
+      type: "product/delete",
       payload: id,
     });
   };
   useEffect(() => {
     dispatch({
-      type: "products/getProducts",
+      type: "product/getProducts",
       payload: [],
     });
   }, []);
   return <ProductList onDelete={handleDelete} products={products} />;
 };
 
-function mapStateToProps({ products }) {
+function mapStateToProps({ product }) {
   return {
-    products: products,
+    products: product,
   };
 }
 

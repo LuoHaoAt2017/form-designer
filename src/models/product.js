@@ -1,10 +1,10 @@
-import { GetProducts } from "@/services/products";
+import { GetProducts } from "@/services/product";
 
 const DELETE_PRODUCT = "delete";
 const SEARCH_PRODUCT = "search";
 
 export default {
-  namespace: "products",
+  namespace: "product",
   state: [
     {
       id: "001",
@@ -39,5 +39,7 @@ export default {
       });
     },
   },
-  subscriptions: {},
+  subscriptions: {
+
+  }
 };

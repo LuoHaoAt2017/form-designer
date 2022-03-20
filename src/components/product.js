@@ -5,7 +5,7 @@ import {
   DeleteOutlined,
   EyeOutlined,
   EditOutlined,
-  PlusCircleOutlined,
+  CopyOutlined,
 } from "@ant-design/icons";
 
 const ProductList = ({ onDelete, products }) => {
@@ -40,7 +40,7 @@ const ProductList = ({ onDelete, products }) => {
             <Button type="primary" icon={<EditOutlined />}>
               编辑
             </Button>
-            <Button icon={<PlusCircleOutlined />}>新增</Button>
+            <Button icon={<CopyOutlined />}>复制</Button>
           </Button.Group>
         );
       },
