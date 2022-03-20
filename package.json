@@ -1,0 +1,26 @@
+{
+  "name": "form-designer",
+  "version": "1.0.0",
+  "description": "可拖拽表单设计器",
+  "main": "index.js",
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "test": "umi test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuoHaoAt2017/form-designer.git"
+  },
+  "author": "LuoHao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuoHaoAt2017/form-designer/issues"
+  },
+  "homepage": "https://github.com/LuoHaoAt2017/form-designer#readme",
+  "dependencies": {
+    "@umijs/preset-react": "^1.8.10",
+    "mockjs": "^1.1.0",
+    "umi": "^3.5.21"
+  }
+}
