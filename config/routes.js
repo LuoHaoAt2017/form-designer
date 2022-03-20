@@ -5,8 +5,8 @@ export default [
     routes: [
       {
         path: "/",
-        component: "@/pages/index",
-        title: '首页'
+        component: "@/pages/products",
+        title: '产品列表'
       }
     ],
   },
