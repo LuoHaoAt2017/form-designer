@@ -1,40 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { connect } from "dva";
-import { Popconfirm, Button, Table } from "antd";
+import ProductList from "@/components/products";
 
-const ProductList = ({ onDelete, products }) => {
-  const columns = [
-    {
-      title: "Name",
-      dataIndex: "name",
-    },
-    {
-      title: "Actions",
-      render: (text, record) => {
-        return (
-          <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
-            <Button>Delete</Button>
-          </Popconfirm>
-        );
-      },
-    },
-  ];
-  return <Table dataSource={products} columns={columns} />;
-};
-
-ProductList.propTypes = {
-  onDelete: PropTypes.func.isRequired,
-  products: PropTypes.array.isRequired,
-};
-
-const Products = ({ dispatch, products }) => {
+const Container = ({ dispatch, products }) => {
   const handleDelete = (id) => {
+    // dispatch 是一个函数方法，用来将 Action 发送给 State。
+    // 被 connect 的 Component 会自动在 props 中拥有 dispatch 方法。
     dispatch({
-      type: 'products/delete',
+      type: "products/delete",
       payload: id,
     });
-  }
+  };
   return (
     <div>
       <h2>List of Products</h2>
@@ -49,4 +25,6 @@ function mapStateToProps({ products }) {
   };
 }
 
-export default connect(mapStateToProps)(Products);
+// connect 是一个函数，绑定 State 到 View。返回的也是一个 React 组件。
+// connect 方法传入的第一个参数是 mapStateToProps 函数，mapStateToProps 函数会返回一个对象，用于建立 State 到 Props 的映射关系。
+export default connect(mapStateToProps)(Container);
