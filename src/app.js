@@ -35,4 +35,35 @@ app.model({
   },
 });
 
+const Header = (props) => (
+  <>
+    <div>Header</div>
+  </>
+);
 
+const Footer = (props) => (
+  <>
+    <div>Footer</div>
+  </>
+);
+
+const getMenus = () => [
+  {
+    path: "/",
+    name: "首页",
+    icon: "home",
+  },
+  {
+    path: "/product",
+    name: "产品列表",
+    icon: "home",
+  },
+];
+
+export const layout = () => {
+  return {
+    headerRender: Header,
+    footerRender: Footer,
+    menu: { request: getMenus },
+  };
+};

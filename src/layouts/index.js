@@ -59,7 +59,7 @@ const Layout = ({ children }) => {
       footerRender={() => <Footer />}
       navTheme="light"
       layout="side"
-      siderWidth={300}
+      siderWidth={240}
       // menuDataRender={menuDataRender}
       menuItemRender={menuItemRender}
       menu={{ request: getMenus }}
