@@ -1,8 +1,7 @@
-// import { Skeleton } from "antd";
-// const { loading } = useModel("@@initialState");
+import { ConfigProvider } from "antd";
 
-// const Layout = ({ children }) => {
-//   return <>{loading ? <Skeleton /> : children}</>;
-// };
+const Layout = ({ children }) => {
+  return <ConfigProvider>{children}</ConfigProvider>;
+};
 
-// export default Layout;
+export default Layout;
