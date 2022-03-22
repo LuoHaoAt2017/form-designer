@@ -3,6 +3,7 @@ import { connect } from "dva";
 import ProductList from "@/components/product";
 
 const Container = ({ dispatch, products }) => {
+  console.log('products: ', products);
   const handleDelete = (id) => {
     // dispatch 是一个函数方法，用来将 Action 发送给 State。
     // 被 connect 的 Component 会自动在 props 中拥有 dispatch 方法。

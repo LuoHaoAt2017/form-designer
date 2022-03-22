@@ -15,12 +15,4 @@ export default {
       };
     },
   },
-  subscriptions: {
-    counter({ dispatch, history }) {
-      
-    },
-  },
-  onStateChange(params) {
-    debugger
-  }
 };

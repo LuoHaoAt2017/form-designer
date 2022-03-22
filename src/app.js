@@ -1,21 +1,11 @@
 import dva from "dva";
-import { createLogger } from "redux-logger";
+import { GetUserInfo } from '@/services';
 
 const app = dva({
   initialState: {},
   onError(evt) {
     console.error(evt.message);
-  },
-  onAction: [
-    // 失效
-    createLogger({
-      level: "log",
-      logger: "console",
-    }),
-  ],
-  onStateChange: function (a, b, c) {
-    // 失效
-  },
+  }
 });
 
 app.model({
@@ -47,23 +37,16 @@ const Footer = (props) => (
   </>
 );
 
-const getMenus = () => [
-  {
-    path: "/",
-    name: "首页",
-    icon: "home",
-  },
-  {
-    path: "/product",
-    name: "产品列表",
-    icon: "home",
-  },
-];
-
 export const layout = () => {
   return {
     headerRender: Header,
-    footerRender: Footer,
-    menu: { request: getMenus },
+    footerRender: Footer
   };
 };
+
+export async function getInitialState() {
+  // 在获取到初始状态前，页面其他部分的渲染都会被阻止。
+  const resp = await GetUserInfo();
+  console.log('UserInfo: ', resp);
+  return resp;
+}
